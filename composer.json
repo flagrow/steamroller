@@ -1,0 +1,25 @@
+{
+    "name": "flagrow/steamroller",
+    "description": "The package to test Flarum extensions.",
+    "keywords": [
+        "testing",
+        "flarum",
+        "flagrow"
+    ],
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Daniël Klabbers",
+            "email": "daniel@klabbers.email",
+            "homepage": "http://luceos.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flagrow\\Steamroller\\": "src/"
+        }
+    }
+}
