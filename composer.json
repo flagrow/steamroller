@@ -6,7 +6,7 @@
         "flarum",
         "flagrow"
     ],
-    "license": "mit",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniël Klabbers",
