@@ -151,7 +151,13 @@ trait CreatesForum
             $migrator->getRepository()->createRepository();
         }
 
-        $migrator->run(__DIR__.'/../../../migrations');
+        // traverse down to seek vendor/flarum/core
+        $path = __DIR__;
+        while(!is_dir("$path/vendor/flarum/core/migrations")) {
+            $path = dirname($path);
+        }
+
+        $migrator->run($path);
 
         $db->beginTransaction();
     }
