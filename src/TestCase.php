@@ -2,7 +2,6 @@
 
 namespace Flagrow\Steamroller;
 
-use Flagrow\Steamroller\Traits as Concerns;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
