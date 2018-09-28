@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Steamroller\Concerns;
+namespace Flagrow\Steamroller\Concerns;
 
 use Flarum\Api\Client;
 use Flarum\User\Guest;
