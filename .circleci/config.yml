@@ -26,6 +26,7 @@ references:
         image: mysql:latest
         environment: *mysql_environment
     environment: &environment
+        - DB_HOST: mysql
         - DB_DATABASE: flarum
         - DB_USERNAME: root
         - DB_PASSWORD: ""
