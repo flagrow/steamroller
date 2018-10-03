@@ -20,8 +20,10 @@ use Flarum\Foundation\UninstalledSite;
 use Flarum\Http\Server;
 use Flarum\Install\Console\DataProviderInterface;
 use Flarum\Install\Console\DefaultsDataProvider;
+use Illuminate\Container\Container;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Connectors\ConnectionFactory;
+use Illuminate\Filesystem\Filesystem;
 
 trait CreatesForum
 {
@@ -77,11 +79,11 @@ trait CreatesForum
     {
         $this->collectsConfiguration();
 
+        $this->seedsDatabase();
+
         $this->createsSite();
 
         $this->createsApp();
-
-        $this->seedsDatabase();
     }
 
     protected function collectsConfiguration()
@@ -139,13 +141,11 @@ trait CreatesForum
             return;
         }
 
-        $app = app(\Illuminate\Contracts\Foundation\Application::class);
-
-        $factory = new ConnectionFactory($app);
+        $factory = new ConnectionFactory(new Container());
         $db = $factory->make($this->configuration->getDatabaseConfiguration());
 
         $repository = new DatabaseMigrationRepository($db, 'migrations');
-        $migrator = new Migrator($repository, $db, app('files'));
+        $migrator = new Migrator($repository, $db, new Filesystem());
 
         if (! $migrator->getRepository()->repositoryExists()) {
             $migrator->getRepository()->createRepository();
