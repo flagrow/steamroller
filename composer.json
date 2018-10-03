@@ -16,11 +16,19 @@
     ],
     "require": {
         "phpunit/phpunit": "6.*",
-        "flarum/core": "^0.1.0-beta.8"
+        "flarum/core": "^0.1.0-beta.8",
+        "fzaninotto/faker": "^1.8.0"
     },
     "autoload": {
         "psr-4": {
             "Flagrow\\Steamroller\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flagrow\\Steamroller\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

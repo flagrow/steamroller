@@ -68,9 +68,20 @@ trait CreatesForum
         }
     }
 
-    protected function createsHttpForum()
+    protected function createsApp()
     {
         $this->app = $this->site->bootApp();
+    }
+
+    protected function refreshApplication()
+    {
+        $this->collectsConfiguration();
+
+        $this->createsSite();
+
+        $this->createsApp();
+
+        $this->seedsDatabase();
     }
 
     protected function collectsConfiguration()
@@ -87,17 +98,6 @@ trait CreatesForum
         $database['password'] = env('DB_PASSWORD', $database['password']);
         $database['prefix'] = env('DB_PREFIX', $database['prefix']);
         $this->configuration->setDatabaseConfiguration($database);
-    }
-
-    protected function refreshApplication()
-    {
-        $this->collectsConfiguration();
-
-        $this->seedsDatabase();
-
-        $this->createsSite();
-
-        $this->createsHttpForum();
     }
 
     protected function teardownApplication()
