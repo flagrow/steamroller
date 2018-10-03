@@ -20,6 +20,8 @@ references:
 
     mysql_environment: &mysql_environment
         - MYSQL_DATABASE: flarum
+        - MYSQL_USER: flarum
+        - MYSQL_PASSWORD: flarum
         - MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
     mysql: &mysql
@@ -28,8 +30,8 @@ references:
     environment: &environment
         - DB_HOST: mysql
         - DB_DATABASE: flarum
-        - DB_USERNAME: root
-        - DB_PASSWORD: ""
+        - DB_USERNAME: flarum
+        - DB_PASSWORD: flarum
 
 jobs:
     "php-7.1":
