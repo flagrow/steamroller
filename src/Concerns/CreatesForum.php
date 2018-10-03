@@ -77,11 +77,12 @@ trait CreatesForum
     {
         $this->collectsConfiguration();
 
+        $this->seedsDatabase();
+
         $this->createsSite();
 
         $this->createsApp();
 
-        $this->seedsDatabase();
     }
 
     protected function collectsConfiguration()
