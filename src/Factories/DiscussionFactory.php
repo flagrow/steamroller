@@ -8,7 +8,7 @@ use Flarum\User\User;
 
 $factory->define(Discussion::class, function (Faker $faker) {
     return [
-        'title' => $faker->title,
+        'title' => $faker->text(100),
         'user_id' => function () {
             return factory(User::class)->create()->id;
         }
